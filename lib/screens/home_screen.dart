@@ -4,7 +4,7 @@ import 'package:news_app/providers/top_headline_provider.dart';
 import 'package:news_app/widget/list_tile.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'sidebar.dart';
+import 'package:news_app/widget/drawer_widget.dart';
 
 enum FilterList { bbc, ary, aljazeera }
 
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: const SideBar(),
+      drawer: SideBar(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         elevation: 2,
@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
           width: 100,
           height: 50,
         ),
-
         actions: [
           Consumer<TopHeadlineProvider>(
             builder: (_, value, __) => PopupMenuButton(
