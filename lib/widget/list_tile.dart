@@ -35,6 +35,7 @@ class _NewsTileState extends State<NewsTile> {
                       image: widget.details.urlToImage.toString(),
                       content: widget.details.content.toString(),
                       publishdate: widget.details.publishedAt.toString(),
+                      url: widget.details.url.toString(),
                     )));
       },
       child: Row(

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:news_app/screens/home_screen.dart';
 import 'package:news_app/screens/login_screen.dart';
 
 class NewsSplashScreen extends StatefulWidget {
@@ -47,19 +46,22 @@ class _NewsSplashScreenState extends State<NewsSplashScreen> {
                     Color(0xff0e1935),
                   ])),
             ),
-            const Center(
-              child: Image(
-                image: AssetImage("assets/news_splash_logo.png"),
-                width: 200,
-              ),
-            ),
-            Positioned(
-              top: size.height * 0.7,
-              left: size.width * 0.46,
-              child: const SpinKitWave(
-                size: 30,
-                color: Colors.white,
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Image(
+                  image: AssetImage("assets/news_splash_logo.png"),
+                  width: 200,
+                ),
+                Positioned(
+                  top: size.height * 0.7,
+                  left: size.width * 0.46,
+                  child: const SpinKitWave(
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             )
           ],
         ),
