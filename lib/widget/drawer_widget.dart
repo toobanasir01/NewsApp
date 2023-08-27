@@ -168,7 +168,7 @@ class SideBar extends StatelessWidget {
                       leading: const Icon(Icons.logout),
 
                       title: Text(
-                        "Login",
+                        "Log Out",
                         style: value.selectedCategory == Categorylist.technology
                             ? TextStyle(color: Colors.white)
                             : TextStyle(color: Color.fromARGB(255, 34, 63, 129)),
