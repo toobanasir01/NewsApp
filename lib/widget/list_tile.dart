@@ -28,6 +28,7 @@ class _NewsTileState extends State<NewsTile> {
             context,
             MaterialPageRoute(
                 builder: (context) => Details(
+                      url: widget.details.url.toString(),
                       name: widget.details.source!.name.toString(),
                       author: widget.details.author.toString(),
                       title: widget.details.title.toString(),

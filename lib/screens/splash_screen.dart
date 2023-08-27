@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:news_app/screens/home_screen.dart';
-import 'package:news_app/screens/login_screen.dart';
+// import 'package:news_app/screens/login_screen.dart';
 
 class NewsSplashScreen extends StatefulWidget {
   const NewsSplashScreen({super.key});
@@ -18,7 +18,7 @@ class _NewsSplashScreenState extends State<NewsSplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 10), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
+          MaterialPageRoute(builder: (context) => const HomeScreen()));
     });
   }
 

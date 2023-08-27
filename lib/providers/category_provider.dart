@@ -92,4 +92,7 @@ class CategoryProvider extends ChangeNotifier {
               builder: ((context) => SideBarDetailScreen(categoryname: "Science"))));
     }
   }
+
+
+
 }
