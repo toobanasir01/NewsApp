@@ -31,7 +31,7 @@ class NewsApp extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.black)),
           primaryColor: Colors.white70,
         ),
-        home: const HomeScreen(),
+        home: const NewsSplashScreen(),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'package:news_app/widget/appbar_action.dart';
 import 'package:news_app/widget/list_tile.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'sidebar.dart';
+import 'package:news_app/widget/drawer_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,8 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: const SideBar(),
-      appBar:AppBar(
+
+      drawer: SideBar(),
+      appBar: AppBar(
+
         iconTheme: const IconThemeData(color: Colors.white),
         elevation: 2,
         backgroundColor: Colors.indigo,
@@ -42,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           width: 100,
           height: 50,
         ),
+
       actions: const [CustomAction()]),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             "Top Headlines",
             style: GoogleFonts.playfairDisplay(
                 fontSize: 24, fontWeight: FontWeight.bold),
+
           ),
         ),
         Expanded(

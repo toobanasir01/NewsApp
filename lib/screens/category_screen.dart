@@ -3,25 +3,23 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/providers/category_provider.dart';
 import 'package:news_app/screens/home_screen.dart';
 import 'package:news_app/widget/list_tile.dart';
-
+import 'package:news_app/widget/drawer_widget.dart';
 import 'package:provider/provider.dart';
 
-import 'sidebar.dart';
-
-class SideBarDetailScreen extends StatefulWidget {
+class CategoryScreen extends StatefulWidget {
   final String categoryname;
-  const SideBarDetailScreen({super.key, required this.categoryname});
+  const CategoryScreen({super.key, required this.categoryname});
 
   @override
-  State<SideBarDetailScreen> createState() => _SideBarDetailScreen();
+  State<CategoryScreen> createState() => _CategoryScreen();
 }
 
-class _SideBarDetailScreen extends State<SideBarDetailScreen> {
+class _CategoryScreen extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       child: Scaffold(
-        drawer: const SideBar(),
+        drawer: SideBar(),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.indigo,
@@ -29,7 +27,9 @@ class _SideBarDetailScreen extends State<SideBarDetailScreen> {
           title: Text(
             widget.categoryname,
             style: GoogleFonts.anton(
-                fontSize: 30, fontWeight: FontWeight.normal, color: Colors.white),
+                fontSize: 30,
+                fontWeight: FontWeight.normal,
+                color: Colors.white),
           ),
         ),
         body: SafeArea(
@@ -42,7 +42,6 @@ class _SideBarDetailScreen extends State<SideBarDetailScreen> {
             return ListView.separated(
                 padding: const EdgeInsets.all(12),
                 itemBuilder: (context, index) {
-
                   return NewsTile(details: category[index]);
                 },
                 separatorBuilder: (context, index) {
@@ -52,10 +51,10 @@ class _SideBarDetailScreen extends State<SideBarDetailScreen> {
           }),
         ),
       ),
-      onWillPop: () async{
-        return await Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+      onWillPop: () async {
+        return await Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomeScreen()));
       },
     );
   }
 }
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/widget/custom_button.dart';
 import 'package:news_app/widget/custom_card_widget.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
@@ -8,7 +9,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
+
 
 class Details extends StatefulWidget {
   const Details({
@@ -52,8 +53,18 @@ class _DetailsState extends State<Details> {
         pw.Page(
             pageFormat: PdfPageFormat.a4,
             build: (pw.Context context ){
-              return pw.Center(
-                child: pw.Text('${widget.title}',style: pw.TextStyle(font: ttf,fontSize: 40)),
+              return pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  pw.Center(
+                    child: pw.Text('${widget.title }',style: pw.TextStyle(font: ttf,fontSize: 25)),
+                  ),
+                  pw.SizedBox(),
+                  pw.Text('${widget.description }',style: pw.TextStyle(font: ttf,fontSize: 20)),
+                  pw.SizedBox(),
+                  pw.Text('${widget.content }',style: pw.TextStyle(font: ttf,fontSize: 20)),
+
+                ]
               );
             }
         )
@@ -65,9 +76,9 @@ class _DetailsState extends State<Details> {
     final directory = await getExternalStorageDirectory();
     // String documentPath = documentDirectory.path;
 
-       final file1 = File("${directory?.path}/${DateTime.now()}new.pdf");
+    final file1 = File("${directory?.path}/${DateTime.now()}new.pdf");
 
-      file1.writeAsBytes(await pdf.save());
+    file1.writeAsBytes(await pdf.save());
 
     setState(() {
       file = file1;
@@ -158,17 +169,10 @@ class _DetailsState extends State<Details> {
                     ),
                     Spacer(),
 
-                    ElevatedButton(
-                        onPressed: (){
-                          writeOnPDF();
-                          savePDF();
-                        },
-                        child: ContainerWiget(
-                          width: 380,
-                          height: 50,
-                          color: Colors.indigo,
-                          container: Text("Save"),
-                        ))
+               CustomButton(onPressed: (){
+                 writeOnPDF();
+                 savePDF();
+               }, text: "Save")
                   ],
                 )),
             Container(
@@ -179,8 +183,8 @@ class _DetailsState extends State<Details> {
 
                   launchUrl(
 
-                    Uri.parse(widget.url),
-                    mode: LaunchMode.inAppWebView
+                      Uri.parse(widget.url),
+                      mode: LaunchMode.inAppWebView
                   );
                 },
                 child: const Icon(Icons.ac_unit_outlined),
