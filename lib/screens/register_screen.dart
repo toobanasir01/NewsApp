@@ -52,21 +52,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Register",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.grey,
                 ),
               ),
-              Text(
+              const Text(
                 "Create your account",
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Form(
@@ -79,9 +79,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         label: "Username",
                         icon: const Icon(
                           Icons.person,
+                          color: Colors.indigo,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
@@ -93,9 +94,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         label: "Email",
                         icon: const Icon(
                           Icons.email,
+                          color: Colors.indigo,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
@@ -111,9 +113,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         label: "Password",
                         icon: const Icon(
                           Icons.password,
+                          color: Colors.indigo,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
@@ -128,23 +131,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         label: "Confirm Password",
                         icon: const Icon(
                           Icons.password,
+                          color: Colors.indigo,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       CustomButton(
                         text: 'Register',
                         onPressed: _handleRegister,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Already have an account?"),
-                          SizedBox(
+                          const Text("Already have an account?"),
+                          const SizedBox(
                             width: 10,
                           ),
                           GestureDetector(
@@ -152,13 +156,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginScreen()),
+                                      builder: (context) =>
+                                          const LoginScreen()),
                                 );
                               },
-                              child: Text(
-                                "Login",
+                              child: const Text(
+                                "Log In",
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 60, 28, 202),
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.indigo,
                                 ),
                               ))
                         ],

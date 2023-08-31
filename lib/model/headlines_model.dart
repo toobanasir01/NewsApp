@@ -19,15 +19,18 @@ class Articles {
       this.content});
 
   Articles.fromJson(Map<String, dynamic> json) {
-
-    source = json['source'] != null ? Source.fromJson(json['source']) : null ;
+    source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'] ?? "Anonymous";
-    title = json['title']?? "Anonymous";
-    description = json['description'] ?? "Anonymous dat is not conatine please visit website for full news";
-    url = json['url'] ?? "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg";
-    urlToImage = json['urlToImage'] ?? "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg";
-    publishedAt = json['publishedAt'] ;
-    content = json['content'] ?? "Please visit our site for complete news Thank you       [6534 chars]";
+    title = json['title'] ?? "Anonymous";
+    description = json['description'] ??
+        "Anonymous dat is not conatine please visit website for full news";
+    url = json['url'] ??
+        "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg";
+    urlToImage = json['urlToImage'] ??
+        "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg";
+    publishedAt = json['publishedAt'];
+    content = json['content'] ??
+        "Please visit our site for complete news Thank you       [6534 chars]";
   }
 
   Map<String, dynamic> toJson() {

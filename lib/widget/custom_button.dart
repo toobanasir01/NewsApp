@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
+
   const CustomButton({super.key, required this.onPressed, required this.text});
 
   @override
@@ -13,14 +14,14 @@ class CustomButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 40),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Color.fromARGB(255, 60, 28, 202),
+          primary: Colors.indigo,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         ),
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 15,
           ),

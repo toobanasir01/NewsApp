@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:news_app/controller/headlines_controller.dart';
 import 'package:news_app/screens/home_screen.dart';
+import 'package:news_app/screens/login_screen.dart';
 
 import '../model/headlines_model.dart';
 import '../screens/category_screen.dart';
@@ -14,7 +15,8 @@ enum Categorylist {
   health,
   science,
   sports,
-  technology
+  technology,
+  logout
 }
 
 class CategoryProvider extends ChangeNotifier {
@@ -22,30 +24,31 @@ class CategoryProvider extends ChangeNotifier {
   bool isloading = false;
   Categorylist? selectedCategory;
 
-  List<Articles> _ArticleList = [];
+  List<Articles> _articleList = [];
 
-  List<Articles> get ArticleList => _ArticleList;
+  List<Articles> get articleList => _articleList;
 
   Future<void> getallarticles(String category1) async {
     isloading = true;
 
     final response = await _service.getCategory(category1);
-    _ArticleList = response;
+    _articleList = response;
     isloading = false;
     notifyListeners();
   }
 
   addList(BuildContext context) {
     if (Categorylist.home == selectedCategory) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: ((context) => HomeScreen())));
+      Navigator.push(context,
+          MaterialPageRoute(builder: ((context) => const HomeScreen())));
     }
     if (Categorylist.general == selectedCategory) {
       getallarticles("general");
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => CategoryScreen(categoryname: "General"))));
+              builder: ((context) =>
+                  const CategoryScreen(categoryname: "General"))));
     }
     if (Categorylist.business == selectedCategory) {
       getallarticles("business");
@@ -53,7 +56,7 @@ class CategoryProvider extends ChangeNotifier {
           context,
           MaterialPageRoute(
               builder: ((context) =>
-                  CategoryScreen(categoryname: "Business"))));
+                  const CategoryScreen(categoryname: "Business"))));
     }
     if (Categorylist.entertainment == selectedCategory) {
       getallarticles("entertainment");
@@ -61,21 +64,23 @@ class CategoryProvider extends ChangeNotifier {
           context,
           MaterialPageRoute(
               builder: ((context) =>
-                  CategoryScreen(categoryname: "Entertainment"))));
+                  const CategoryScreen(categoryname: "Entertainment"))));
     }
     if (Categorylist.health == selectedCategory) {
       getallarticles("health");
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => CategoryScreen(categoryname: "Health"))));
+              builder: ((context) =>
+                  const CategoryScreen(categoryname: "Health"))));
     }
     if (Categorylist.sports == selectedCategory) {
       getallarticles("sports");
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => CategoryScreen(categoryname: "Sports"))));
+              builder: ((context) =>
+                  const CategoryScreen(categoryname: "Sports"))));
     }
     if (Categorylist.technology == selectedCategory) {
       getallarticles("technology");
@@ -83,17 +88,19 @@ class CategoryProvider extends ChangeNotifier {
           context,
           MaterialPageRoute(
               builder: ((context) =>
-                  CategoryScreen(categoryname: "Technology"))));
+                  const CategoryScreen(categoryname: "Technology"))));
     }
     if (Categorylist.science == selectedCategory) {
       getallarticles("science");
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: ((context) => CategoryScreen(categoryname: "Science"))));
+              builder: ((context) =>
+                  const CategoryScreen(categoryname: "Science"))));
+    }
+    if (Categorylist.logout == selectedCategory) {
+
+
     }
   }
-
-
-
 }

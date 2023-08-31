@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatefulWidget {
   final String categoryname;
+
   const CategoryScreen({super.key, required this.categoryname});
 
   @override
@@ -35,10 +36,10 @@ class _CategoryScreen extends State<CategoryScreen> {
         body: SafeArea(
           child: Consumer<CategoryProvider>(builder: (_, value, __) {
             if (value.isloading) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
 
-            final category = value.ArticleList;
+            final category = value.articleList;
             return ListView.separated(
                 padding: const EdgeInsets.all(12),
                 itemBuilder: (context, index) {
@@ -47,13 +48,13 @@ class _CategoryScreen extends State<CategoryScreen> {
                 separatorBuilder: (context, index) {
                   return const SizedBox();
                 },
-                itemCount: value.ArticleList.length);
+                itemCount: value.articleList.length);
           }),
         ),
       ),
       onWillPop: () async {
-        return await Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        return await Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
       },
     );
   }

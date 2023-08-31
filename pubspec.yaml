@@ -48,6 +48,8 @@ dependencies:
 
   pdf: ^3.10.4
   pdf_viewer_plugin: ^2.0.1
+  share_plus: ^7.1.0
+  permission_handler: ^10.4.3
 
 
 
@@ -78,6 +80,7 @@ flutter_icons:
   pdf_viewer_plugin: ^2.0.1
   google_fonts: ^5.1.0
   printing: ^5.11.0
+
 
 
 flutter:

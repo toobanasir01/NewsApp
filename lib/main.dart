@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:news_app/providers/category_provider.dart';
 import 'package:news_app/providers/top_headline_provider.dart';
 import 'package:news_app/screens/home_screen.dart';
+
 import 'package:news_app/screens/splash_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -19,8 +20,7 @@ class NewsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: ((context) => CategoryProvider())),
+        ChangeNotifierProvider(create: ((context) => CategoryProvider())),
         ChangeNotifierProvider(create: ((context) => TopHeadlineProvider())),
       ],
       child: MaterialApp(

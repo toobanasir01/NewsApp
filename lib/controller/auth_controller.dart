@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 class AuthController {
   final Dio _dio = Dio();
+
   Future<Response<dynamic>> login(String email, String password) async {
     try {
       Response<dynamic> response = await _dio.post(
